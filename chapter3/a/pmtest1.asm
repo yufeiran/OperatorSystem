@@ -4,7 +4,7 @@
 
 %include    "pm.inc"    ;常量，宏，以及一些说明
 
-org     07c00h
+org     0100h
         jmp     LABEL_BEGIN
 
 [SECTION .gdt]
@@ -76,7 +76,7 @@ LABEL_SEG_CODE32:
     mov ax,SelectorVideo
     mov gs,ax       ;视频段选择子（目的）
 
-    mov edi,(80*11+79)*2 ;屏幕第11行，第79列
+    mov edi,(80*5+1)*2 ;屏幕第11行，第1列
     mov ah,0ch      ; 0000:黑底   1100：红字
     mov al,'p'
     mov [gs:edi],ax
